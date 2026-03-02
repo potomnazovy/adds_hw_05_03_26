@@ -22,21 +22,21 @@ T* merge(const T* const* a, size_t sa, size_t* sai, T* c)
       ++indMax;
     }
 
-    T max_el = a[indMax][sai[indMax] - 1];
+    T max_el = a[indMax][sai[indMax] - 1]; //конструктор копирования
 
     for (size_t i = indMax + 1; i < sa; ++i)
     {
-      if (sai[i] > 0 && max_el < a[i][sai[i] - 1])
+      if (sai[i] > 0 && max_el < a[i][sai[i] - 1]) //оператор сравнения(меньше)
       {
-        max_el = a[i][sai[i] - 1];
+        max_el = a[i][sai[i] - 1]; //оператор присваивания
         indMax = i;
       }
     }
 
-    c[k - 1] = max_el;
+    c[k - 1] = max_el; //оператор присваивания
     --k;
     --sai[indMax];
-    
+
   }
   return c;
 }
